@@ -1,0 +1,14 @@
+$color-primary: #ff6060;
+$gradient: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  rgba(0, 0, 0, 0.5) 100%
+);
+
+// -- BREAKPOINTS -- \\
+$x-small-breakpoints: 340px;
+$small-breakpoints: 450px;
+$medium-breakpoints: 770px;
+$x-medium-breakpoints: 690px;
+$large-breakpoints: 1024px;
+$x-large-breakpoints: 1500px;

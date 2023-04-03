@@ -1,0 +1,60 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.navbarContainer {
+  @include flexRow(space-between);
+  gap: 20px;
+
+  img {
+    max-height: 68px;
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      @include flexRow();
+      gap: 20px;
+      li {
+        color: $color-primary;
+        list-style: none;
+        font-size: 24px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .active {
+        text-decoration-line: underline;
+      }
+    }
+  }
+
+  @include resolution(tablet) {
+    img {
+      max-height: 57px;
+    }
+
+    nav {
+      ul {
+        li {
+          font-size: 20px;
+          width: max-content;
+        }
+      }
+    }
+  }
+
+  @include resolution(mobile) {
+    img {
+      max-height: 47px;
+    }
+
+    nav {
+      ul {
+        li {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

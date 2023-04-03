@@ -1,0 +1,16 @@
+@import "../../shared/styles/mixins";
+
+.layout {
+  padding: 40px 100px;
+  min-height: 100vh;
+  @include flexColumn(flex-start, stretch);
+  gap: 30px;
+
+  @include resolution(tablet) {
+    padding: 40px 50px;
+  }
+
+  @include resolution(mobile) {
+    padding: 20px;
+  }
+}

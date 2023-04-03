@@ -1,0 +1,43 @@
+@import "./variables";
+
+@mixin flexRow($justify: center, $align: center) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flexColumn($justify: center, $align: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin resolution($device) {
+  @if $device == mobile {
+    @media screen and (max-width: $small-breakpoints) {
+      @content;
+    }
+  } @else if $device == x-mobile {
+    @media screen and (max-width: $x-small-breakpoints) {
+      @content;
+    }
+  } @else if $device == x-tablet {
+    @media screen and (max-width: $x-medium-breakpoints) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media screen and (max-width: $medium-breakpoints) {
+      @content;
+    }
+  } @else if $device == x-desktop {
+    @media screen and (max-width: $large-breakpoints) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media screen and (max-width: $x-large-breakpoints) {
+      @content;
+    }
+  }
+}
