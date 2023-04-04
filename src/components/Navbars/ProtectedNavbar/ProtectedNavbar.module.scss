@@ -7,6 +7,7 @@
 
   img {
     max-height: 68px;
+    cursor: pointer;
   }
 
   nav {
@@ -16,15 +17,19 @@
       @include flexRow();
       gap: 20px;
       li {
-        color: $color-primary;
         list-style: none;
         font-size: 24px;
         cursor: pointer;
         font-weight: 500;
+        a {
+          color: $color-primary;
+          text-decoration: none;
+        }
       }
 
       .active {
         text-decoration-line: underline;
+        color: $color-primary;
       }
     }
   }
@@ -52,7 +57,7 @@
     nav {
       ul {
         li {
-          font-size: 14px;
+          font-size: 13px;
         }
       }
     }

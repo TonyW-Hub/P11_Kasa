@@ -1,0 +1,53 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.card {
+  @include flexRow();
+  background: $color-primary;
+  height: 223px;
+  max-height: 223px;
+  border-radius: 25px;
+  color: #fff;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  padding: 0px 16px;
+
+  .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $color-dark-opacity;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .children {
+    font-size: 48px;
+    z-index: 15;
+  }
+
+  @include resolution(tablet) {
+    height: 160px;
+    border-radius: 15px;
+
+    .children {
+      font-size: 32px;
+    }
+  }
+
+  @include resolution(mobile) {
+    height: 110px;
+    justify-content: flex-start;
+    border-radius: 10px;
+
+    .children {
+      font-size: 24px;
+      width: 60%;
+    }
+  }
+}

@@ -3,6 +3,7 @@
 .layout {
   padding: 40px 100px;
   min-height: 100vh;
+  transition: all 0.2s ease-in-out;
   @include flexColumn(flex-start, stretch);
   gap: 30px;
 

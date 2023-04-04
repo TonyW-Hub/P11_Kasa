@@ -1,0 +1,32 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+
+.mainContainer {
+  @include flexColumn(flex-start, stretch);
+  gap: 30px;
+
+  .content {
+    background: $color-content;
+    min-height: 20px;
+    border-radius: 25px;
+    @include flexRow();
+    flex-wrap: wrap;
+    padding: 56px 50px;
+    gap: 50px 60px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  @include resolution(x-desktop) {
+    .content {
+      padding: 20px 10px;
+      gap: 20px;
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+
+}
