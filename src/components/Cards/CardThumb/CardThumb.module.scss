@@ -2,7 +2,7 @@
 @import "../../../shared/styles/mixins";
 
 .card {
-  width: 340px;
+  width: calc((100% / 3) - (40px / 3));
   height: 340px;
   background: $color-primary;
   @include flexColumn(flex-end, flex-start);

@@ -33,8 +33,8 @@ const HomePage = () => {
 
   return (
     <main className={styles.mainContainer}>
-      <Card bgImage={APP_IMAGES_ASSETS.image.home}>
-        <p>Chez vous, partout et ailleurs</p>
+      <Card bgImage={APP_IMAGES_ASSETS.image.home} className={styles.mainCard}>
+        <p className={styles.slogan}>Chez vous, partout et ailleurs</p>
       </Card>
 
       <div className={styles.content}>

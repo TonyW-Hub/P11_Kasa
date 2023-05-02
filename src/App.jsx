@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage/AboutPage";
 import ProtectedLayout from "./layouts/ProtectedLayout/ProtectedLayout";
 import HomePage from "./pages/HomePage/HomePage";
 import { APP_LINKS } from "./project/appLinks";
+import HousePage from "./pages/HousePage/HousePage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,7 +20,7 @@ const router = createBrowserRouter(
     >
       <Route path={APP_LINKS.home} element={<HomePage />}></Route>
       <Route path="/about" element={<AboutPage />}></Route>
-      <Route path="/house/:id" element={<AboutPage />}></Route>
+      <Route path="/house/:id" element={<HousePage />}></Route>
     </Route>
   )
 );

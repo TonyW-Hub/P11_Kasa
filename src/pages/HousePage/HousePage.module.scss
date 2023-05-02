@@ -1,0 +1,269 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+
+.page {
+  @include flexColumn(center, stretch);
+  gap: 30px;
+
+  .carousel {
+    @include flexRow();
+    height: 415px;
+    max-height: 415px;
+    position: relative;
+    padding: 0;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+
+    .children {
+      background: black;
+    }
+
+    .indicator {
+      position: absolute;
+      bottom: 0;
+      transform: translate(-50%, 0%);
+      margin: 0 auto;
+      left: 50%;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    button {
+      position: absolute;
+      height: 100%;
+      width: max-content;
+      @include flexColumn();
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      top: 0;
+
+      &:hover {
+        background: $color-dark-opacity;
+      }
+
+      img {
+        object-fit: initial;
+        cursor: pointer;
+        width: 47px;
+        height: 80px;
+      }
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+
+      img {
+        transform: rotate(180deg);
+      }
+    }
+
+    @include resolution(tablet) {
+      height: 320px;
+
+      button {
+        img {
+          width: 20px;
+        }
+      }
+    }
+
+    @include resolution(mobile) {
+      height: 255px;
+
+      .indicator {
+        display: none;
+      }
+
+      button {
+        img {
+          width: 12px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .content {
+    @include flexColumn(flex-start, stretch);
+    gap: 25px;
+
+    .header {
+      color: $color-primary;
+      @include flexRow(space-between);
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .information {
+        @include flexColumn(flex-start, flex-start);
+        gap: 25px;
+        max-width: 50%;
+
+        .title {
+          @include flexColumn(flex-start, flex-start);
+          gap: 5px;
+          &Name {
+            font-weight: 500;
+            font-size: 36px;
+            margin: 0;
+          }
+
+          .location {
+            font-size: 18px;
+            margin: 0;
+            font-weight: 500;
+          }
+        }
+
+        .tags {
+          @include flexRow(flex-start);
+          flex-wrap: wrap;
+          gap: 10px;
+          .pill {
+            @include flexRow();
+            background: $color-primary;
+            border-radius: 10px;
+            color: #fff;
+            padding: 0px 20px;
+            min-width: 115px;
+            min-height: 25px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .profileInformation {
+        @include flexColumn(flex-start, flex-end);
+        gap: 25px;
+        .host {
+          @include flexRow();
+          gap: 10px;
+
+          &Name {
+            width: min-content;
+            font-weight: 500;
+            font-size: 18px;
+            margin: 0;
+          }
+
+          &Picture {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+          }
+        }
+
+        .rating {
+          @include flexRow();
+          gap: 15px;
+        }
+      }
+    }
+
+    .cardToggleContainer {
+      @include flexRow(space-between, stretch);
+      details {
+        width: calc((100% / 2) - (20px / 2));
+      }
+    }
+
+    @include resolution(tablet) {
+      .header {
+        @include flexColumn(flex-start, flex-start);
+
+        .information {
+          width: auto;
+          max-width: initial;
+          gap: 10px;
+
+          .title {
+            &Name {
+              font-size: 22px;
+            }
+
+            .location {
+              font-size: 16px;
+            }
+          }
+        }
+
+        .profileInformation {
+          @include flexRow(space-between);
+          flex-direction: row-reverse;
+          width: 100%;
+        }
+      }
+
+      .cardToggleContainer {
+        @include flexColumn();
+        gap: 20px;
+        
+        details {
+          width: 100%;
+        }
+      }
+    }
+
+    @include resolution(mobile) {
+      .header {
+        .information {
+          .title {
+            &Name {
+              font-size: 18px;
+            }
+
+            .location {
+              font-size: 14px;
+            }
+          }
+
+          .tags {
+            .pill {
+              font-size: 10px;
+              min-width: 84px;
+              min-height: 18px;
+              border-radius: 5px;
+            }
+          }
+        }
+
+        .profileInformation {
+          .host {
+            &Name {
+              font-size: 12px;
+            }
+
+            &Picture {
+              width: 32px;
+              height: 32px;
+            }
+          }
+
+          .rating {
+            img {
+              width: 13px;
+              height: 13px;
+            }
+          }
+        }
+      }
+
+      .cardToggleContainer {
+        details {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
