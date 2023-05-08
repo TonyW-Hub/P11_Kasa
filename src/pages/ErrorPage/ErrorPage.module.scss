@@ -1,0 +1,78 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+
+.errorLayout {
+  padding: 40px 100px;
+  min-height: calc(100vh - 80px);
+  transition: all 0.2s ease-in-out;
+  @include flexColumn(flex-start, stretch);
+  gap: 150px;
+  text-align: center;
+
+  .error {
+    @include flexColumn();
+    color: $color-primary;
+
+    p {
+      margin: 0;
+    }
+
+    &Number {
+      font-size: 288px;
+      font-weight: 700;
+    }
+
+    &Message {
+      font-size: 36px;
+      font-weight: 500;
+    }
+  }
+
+  .link {
+    color: $color-primary;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  @include resolution(tablet) {
+    padding: 40px 50px;
+    gap: 200px;
+    .error {
+      &Number {
+        font-size: 130px;
+      }
+
+      &Message {
+        font-size: 22px;
+      }
+    }
+
+    .link {
+      font-size: 16px;
+    }
+  }
+
+  @include resolution(mobile) {
+    padding: 20px;
+    min-height: calc(100vh - 40px);
+    gap: 190px;
+
+    .error {
+      &Number {
+        font-size: 96px;
+      }
+
+      &Message {
+        font-size: 18px;
+      }
+    }
+
+    .link {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-height: 640px) {
+    gap: 80px;
+  }
+}
