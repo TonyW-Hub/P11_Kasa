@@ -1,0 +1,47 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.loader {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-right-color: $color-primary;
+  animation: spinner 1s infinite linear;
+
+  &::before,
+  &::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2.2px;
+    border: inherit;
+    border-radius: 50%;
+    animation: spinner 2s infinite;
+    border-right-color: darken($color-primary, 10%);
+  }
+
+  &::after {
+    margin: 8.9px;
+    animation-duration: 3s;
+    border-right-color: $color-primary;
+  }
+
+  @keyframes spinner {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+.container {
+  @include flexColumn();
+  width: max-content;
+}
+
+.absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

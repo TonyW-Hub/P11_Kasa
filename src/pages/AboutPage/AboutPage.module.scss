@@ -1,3 +1,58 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+
 .mainContainer {
-  background-color: red;
+  @include flexColumn(flex-start, stretch);
+  gap: 30px;
+
+  .mainCard {
+    height: 223px !important;
+  }
+
+  .cardToggle {
+    summary {
+      border-radius: 5px;
+      font-size: 24px;
+      font-weight: 500;
+      padding: 9px 18px;
+    }
+
+    div {
+      min-height: auto;
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+
+  @include resolution(tablet) {
+    gap: 25px;
+
+    .cardToggle {
+      summary {
+        font-size: 18px;
+        padding: 9px 18px;
+      }
+
+      div {
+        min-height: auto;
+        font-size: 17px;
+      }
+    }
+  }
+
+  @include resolution(mobile) {
+    gap: 20px;
+
+    .cardToggle {
+      summary {
+        font-size: 13px;
+        padding: 9px 18px;
+      }
+
+      div {
+        min-height: auto;
+        font-size: 12px;
+      }
+    }
+  }
 }

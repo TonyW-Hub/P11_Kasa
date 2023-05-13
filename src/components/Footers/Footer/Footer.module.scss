@@ -1,0 +1,32 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.footer {
+  background: black;
+  color: #fff;
+  @include flexColumn();
+  gap: 35px;
+  height: 210px;
+
+  img {
+    padding-top: 30px;
+    width: 122px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0px;
+
+    @include resolution(tablet) {
+      font-size: 18px;
+    }
+
+    @include resolution(mobile) {
+      font-size: 12px;
+    }
+  }
+}

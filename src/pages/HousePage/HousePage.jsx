@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import { Card } from "../../components/Cards/Card/Card";
 import { APP_IMAGES_ASSETS } from "../../project/appImagesAssets";
 import { CardToggle } from "../../components/Cards/CardToggle/CardToggle";
+import Loader from "../../components/Loaders/Loader/Loader";
 
 const HousePage = () => {
   const [house, setHouse] = useState({});
@@ -60,7 +61,7 @@ const HousePage = () => {
   }, [params, navigate]);
 
   if (loader) {
-    return <div>Loader</div>;
+    return <Loader absolute>Chargement du logement...</Loader>;
   }
 
   return (
@@ -79,26 +80,35 @@ const HousePage = () => {
             style={currentSlide !== index ? { display: "none" } : {}}
           />
         ))}
-        <p className={styles.indicator}>
-          {currentSlide + 1}/{house?.pictures?.length}
-        </p>
-
-        <button
-          onClick={() => {
-            handleClickCarousel("prev");
-          }}
-          className={styles.prev}
-        >
-          <img src={APP_IMAGES_ASSETS.icon.angleCarousel} alt="Icone d'angle" />
-        </button>
-        <button
-          onClick={() => {
-            handleClickCarousel("next");
-          }}
-          className={styles.next}
-        >
-          <img src={APP_IMAGES_ASSETS.icon.angleCarousel} alt="Icone d'angle" />
-        </button>
+        {house?.pictures?.lenght > 1 && (
+          <React.Fragment>
+            <p className={styles.indicator}>
+              {currentSlide + 1}/{house?.pictures?.length}
+            </p>
+            <button
+              onClick={() => {
+                handleClickCarousel("prev");
+              }}
+              className={styles.prev}
+            >
+              <img
+                src={APP_IMAGES_ASSETS.icon.angleCarousel}
+                alt="Icone d'angle"
+              />
+            </button>
+            <button
+              onClick={() => {
+                handleClickCarousel("next");
+              }}
+              className={styles.next}
+            >
+              <img
+                src={APP_IMAGES_ASSETS.icon.angleCarousel}
+                alt="Icone d'angle"
+              />
+            </button>
+          </React.Fragment>
+        )}
       </Card>
 
       <div className={styles.content}>
@@ -147,10 +157,10 @@ const HousePage = () => {
         </div>
 
         <div className={styles.cardToggleContainer}>
-          <CardToggle title={"Description"} open>
+          <CardToggle title={"Description"}>
             <p>{house?.description}</p>
           </CardToggle>
-          <CardToggle title={"Équipements"} open>
+          <CardToggle title={"Équipements"}>
             <ul>
               {house?.equipments?.map((equipment, index) => (
                 <li key={equipment + index}>{equipment}</li>

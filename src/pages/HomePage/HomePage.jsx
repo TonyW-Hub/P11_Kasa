@@ -3,6 +3,7 @@ import styles from "./HomePage.module.scss";
 import { Card } from "../../components/Cards/Card/Card";
 import { APP_IMAGES_ASSETS } from "../../project/appImagesAssets";
 import { CardThumb } from "../../components/Cards/CardThumb/CardThumb";
+import Loader from "../../components/Loaders/Loader/Loader";
 
 const HomePage = () => {
   const [dataHousing, setDataHousing] = useState([]);
@@ -38,7 +39,7 @@ const HomePage = () => {
       </Card>
 
       <div className={styles.content}>
-        {loadingHousing && <>Loader</>}
+        {loadingHousing && <Loader>Chargement des logements...</Loader>}
         {dataHousing?.map((house, index) => (
           <CardThumb key={house.id + index} house={house}>
             {house.title}
