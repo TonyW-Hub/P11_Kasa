@@ -45,6 +45,8 @@ const HomePage = () => {
             {house.title}
           </CardThumb>
         ))}
+
+        {!loadingHousing && !dataHousing && <p>Erreur de données</p>}
       </div>
     </main>
   );

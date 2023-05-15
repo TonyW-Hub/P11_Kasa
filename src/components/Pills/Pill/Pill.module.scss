@@ -1,0 +1,20 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.pill {
+  @include flexRow();
+  background: $color-primary;
+  border-radius: 10px;
+  color: #fff;
+  padding: 0px 20px;
+  min-width: 115px;
+  min-height: 25px;
+  font-size: 14px;
+
+  @include resolution(mobile) {
+    font-size: 10px;
+    min-width: 84px;
+    min-height: 18px;
+    border-radius: 5px;
+  }
+}

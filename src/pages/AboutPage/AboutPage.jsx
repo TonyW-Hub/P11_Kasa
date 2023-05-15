@@ -4,6 +4,7 @@ import { Card } from "../../components/Cards/Card/Card";
 import { APP_IMAGES_ASSETS } from "../../project/appImagesAssets";
 import { CardToggle } from "../../components/Cards/CardToggle/CardToggle";
 import Loader from "../../components/Loaders/Loader/Loader";
+// import CardCollapse from "../../components/Cards/CardCollapse/CardCollapse";
 
 const AboutPage = () => {
   const [loader, setLoader] = useState(true);
@@ -49,6 +50,19 @@ const AboutPage = () => {
           {el.description}
         </CardToggle>
       ))}
+
+      {!loader && !aboutContent && <p>Erreur de données</p>}
+
+      {/* Other way to create collapse with other tag html */}
+      {/* {aboutContent?.map((el, index) => (
+        <CardCollapse
+          key={"cardToggle" + index}
+          title={el.title}
+          className={styles.cardCollapse}
+        >
+          {el.description}
+        </CardCollapse>
+      ))} */}
     </div>
   );
 };

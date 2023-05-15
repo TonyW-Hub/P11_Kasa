@@ -5,6 +5,9 @@ import { Card } from "../../components/Cards/Card/Card";
 import { APP_IMAGES_ASSETS } from "../../project/appImagesAssets";
 import { CardToggle } from "../../components/Cards/CardToggle/CardToggle";
 import Loader from "../../components/Loaders/Loader/Loader";
+import Pill from "../../components/Pills/Pill/Pill";
+import { APP_LINKS } from "../../project/appLinks";
+import RatingStars from "../../components/Ratings/RatingStars/RatingStars";
 
 const HousePage = () => {
   const [house, setHouse] = useState({});
@@ -43,7 +46,7 @@ const HousePage = () => {
           (house) => house.id === params.id
         );
 
-        if (!getCurrentHouse[0]) navigate("/error");
+        if (!getCurrentHouse[0]) navigate(APP_LINKS.error);
 
         setHouse(getCurrentHouse[0]);
       } catch (error) {
@@ -62,6 +65,10 @@ const HousePage = () => {
 
   if (loader) {
     return <Loader absolute>Chargement du logement...</Loader>;
+  }
+
+  if (!loader && !house) {
+    return <p>Erreur de données</p>;
   }
 
   return (
@@ -121,9 +128,9 @@ const HousePage = () => {
 
             <div className={styles.tags}>
               {house?.tags?.map((tag, index) => (
-                <span className={styles.pill} key={"tag" + index}>
+                <Pill className={styles.pill} key={"tag" + index}>
                   {tag}
-                </span>
+                </Pill>
               ))}
             </div>
           </div>
@@ -138,21 +145,7 @@ const HousePage = () => {
               />
             </div>
 
-            {house?.rating && (
-              <div className={styles.rating}>
-                {[...Array(5)].map((rating, index) => (
-                  <img
-                    key={"rating" + index}
-                    src={
-                      index + 1 <= parseInt(house?.rating)
-                        ? APP_IMAGES_ASSETS.icon.starActive
-                        : APP_IMAGES_ASSETS.icon.star
-                    }
-                    alt={`Étoile de notation de ${house?.title}`}
-                  />
-                ))}
-              </div>
-            )}
+            {house?.rating && <RatingStars rating={house?.rating} />}
           </div>
         </div>
 

@@ -1,0 +1,22 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.rating {
+  @include flexRow();
+  gap: 15px;
+
+  @include resolution(tablet) {
+    gap: 10px;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @include resolution(mobile) {
+    img {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}
