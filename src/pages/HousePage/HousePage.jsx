@@ -80,7 +80,7 @@ const HousePage = () => {
             style={currentSlide !== index ? { display: "none" } : {}}
           />
         ))}
-        {house?.pictures?.lenght > 1 && (
+        {house?.pictures?.length > 1 && (
           <React.Fragment>
             <p className={styles.indicator}>
               {currentSlide + 1}/{house?.pictures?.length}
